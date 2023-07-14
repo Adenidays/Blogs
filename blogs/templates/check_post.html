@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .post_wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .post_info {
+            margin-bottom: 20px;
+        }
+
+        .post_info p {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.4;
+        }
+
+        .post_info .author {
+            color: #333;
+            font-weight: bold;
+        }
+
+        .post_info .title {
+            color: #555;
+            font-style: italic;
+        }
+
+        .post_info .text {
+            color: #777;
+        }
+
+        .post_info .likes {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .post_info button {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .post_info button:hover {
+            background-color: #45a049;
+        }
+        .aaa{
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+           text decoration:none;
+
+        }
+    </style>
+</head>
+<body>
+    {% csrf_token %}
+    <a class="aaa" href="{% url 'first_page' %}">назад</a>
+    <div class="post_wrapper">
+        <form action="" method="POST">
+            <div class="post_info">
+                <p class="author">author: {{posts.author}}</p>
+                <p class="title">likes: {{posts.post_title}}</p>
+                <p class="text">text: {{posts.post_text}}</p>
+                <p class="likes">likes: {{posts.post_likes}}</p>
+                {% csrf_token %}
+                <button type="submit">Лайк</button>
+
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>
